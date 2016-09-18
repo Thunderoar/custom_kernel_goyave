@@ -1289,8 +1289,6 @@ static void sprdemand_gov_early_suspend(struct early_suspend *h)
 	return;
 }
 
-struct sd_dbs_tuners *g_sd_tuners = NULL;
-
 static void sprdemand_gov_late_resume(struct early_suspend *h)
 {
 	struct cpufreq_policy *policy = cpufreq_cpu_get(0);
