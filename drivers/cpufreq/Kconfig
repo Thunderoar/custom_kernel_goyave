@@ -133,12 +133,6 @@ config CPU_FREQ_DEFAULT_GOV_DARKNESS
  	bool "darkness"
  	select CPU_FREQ_GOV_DARKNESS
 
-config CPU_FREQ_DEFAULT_GOV_ZENERACTIVE
-	bool "zeneractive"
-	select CPU_FREQ_GOV_ZENERACTIVE
-	help
-	Use the CPUFreq governor 'zeneractive' as default.
-
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -256,19 +250,6 @@ config CPU_FREQ_GOV_SPRDEMAND
 
 config CPU_FREQ_GOV_DARKNESS
 	tristate "'darkness' cpufreq policy governor"
-
-config CPU_FREQ_GOV_ZENERACTIVE
-	tristate "'zeneractive' cpufreq governor"
-	depends on CPU_FREQ
-	help
-	'zeneractive' - an interactive-based governor
-	This governor provides full CPU hotplugging support
-	based on CPU load per CPU.
-
-	It also provides CPU hotplugging of CPU 1-X on
-	suspend/wake.
-	For details, take a look at linux/Documentation/cpu-freq.
-	If in doubt, say N
 
 config SCX35_1300MHZ
 	bool "SCX35 1300MHZ"
