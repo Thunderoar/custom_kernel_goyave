@@ -129,6 +129,10 @@ config CPU_FREQ_DEFAULT_GOV_SPRDEMAND
 	  governor. If unsure have a look at the help section of the
 	  driver. Fallback governor will be the performance governor.
 
+config CPU_FREQ_DEFAULT_GOV_DARKNESS
+ 	bool "darkness"
+ 	select CPU_FREQ_GOV_DARKNESS
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -243,6 +247,9 @@ config CPU_FREQ_GOV_SPRDEMAND
 
 	  If you don't have one of these architectures or devices, use
 	  'ondemand' instead.
+
+config CPU_FREQ_GOV_DARKNESS
+	tristate "'darkness' cpufreq policy governor"
 
 config SCX35_1300MHZ
 	bool "SCX35 1300MHZ"

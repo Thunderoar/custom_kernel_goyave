@@ -400,6 +400,9 @@ extern struct cpufreq_governor cpufreq_gov_interactive;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SPRDEMAND)
 extern struct cpufreq_governor cpufreq_gov_sprdemand;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_sprdemand)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DARKNESS)
+extern struct cpufreq_governor cpufreq_gov_darkness;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_darkness)
 #endif
 
 
