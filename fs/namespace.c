@@ -1936,9 +1936,14 @@ static int do_add_mount(struct mount *newmnt, struct path *path, int mnt_flags)
 	parent = real_mount(path->mnt);
 	err = -EINVAL;
 	if (unlikely(!check_mnt(parent))) {
+	if (unlikely(!check_mnt(real_mount(path->mnt)))) {
 		/* that's acceptable only for automounts done in private ns */
 		if (!(mnt_flags & MNT_SHRINKABLE))
 			goto unlock;
+		/* ... and for those we'd better have mountpoint still alive */
+		if (!real_mount(path->mnt)->mnt_ns)
+			goto unlock;
+	}
 		/* ... and for those we'd better have mountpoint still alive */
 		if (!parent->mnt_ns)
 			goto unlock;
